@@ -1,9 +1,10 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using MyScripts;
 using UnityEngine;
 
-public class MyHumanController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     [SerializeField] private GameObject frontHuman;
     [SerializeField] private GameObject backHuman;
@@ -19,17 +20,23 @@ public class MyHumanController : MonoBehaviour
     private GameObject _currentHuman;
     private Rigidbody2D _rb;
     private Vector2 _moveMent;
-
+    private bool isEnabled = true;
 
     void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
         _currentHuman = frontHuman;
         _currentHuman.SetActive(true);
+
+        Fader.Instance.OnFadeOutStarted += EnableMovement;
+        Fader.Instance.OnFadeInFinished += EnableMovement;
+        Fader.Instance.OnFadeOutFinished += MoveTo;
     }
 
     void Update()
     {
+        if (!isEnabled) return;
+
         _moveMent.x = Input.GetAxis("Horizontal");
         _moveMent.y = Input.GetAxis("Vertical");
 
@@ -88,5 +95,16 @@ public class MyHumanController : MonoBehaviour
         _currentHuman.SetActive(false);
         _currentHuman = human;
         _currentHuman.SetActive(true);
+    }
+
+    private void MoveTo(Transform destination)
+    {
+        _rb.position = destination.position;
+    }
+
+    private void EnableMovement(bool state)
+    {
+        _moveMent = Vector2.zero;
+        isEnabled = state;
     }
 }
