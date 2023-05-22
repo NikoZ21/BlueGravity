@@ -1,0 +1,26 @@
+First things first game is very basic I will even leave player right next to Shop so you don't to navigate.
+You can walk around map using WASD keys, right where you spawn you will see shop,every arrow is pointing to
+it so you can;t miss it xD.Use "E" to interact with doors and shopkeeper. Press Tab to open inventory and click 
+on the items to equip. Walk up to the shopkeeper as you go through shop door and press "E" to open shop. Left side is 
+for selling and right is for buying. Basically that is the whole gameplay.
+
+NOTE: I was not able to spend 2 days on this due to my very heavy schedule at current work.
+
+I purchased couple of packages and on of them was for characters, in the movement part I simply took what was already there 
+whichi is all four sides of charachter was set up with animation so I ddn;t want to waste a lot of time on it and simply
+made controller so that it switched between these four gameobjkects based on whcih way player is going.
+
+Interacting with enviroment is pretty easy, I thought to have Interface Interactable that player keeps track of, 
+way he does it is using raycasts, where player checks if any of the interactable items are near him if so he interacts with first one caught.
+probably was better Idea to check for distance and get closest one but well it just occured to me so I would improve on that. Intorducing Interface 
+Interactable makes scaling this system easy. Door was first interactable and using thsi interface adding shopkeeper to be intravtable was quite easy and fast so that is why i did it in case game scales.
+
+Doors are set up using prefabs we have passage prefab that contains 2 doors which are endpoints basically and know about each other, using prefab was smart 
+here in my opinion because adding another passage is quite easy now simply need to add the prefab change positions of the doors and it works, but we also 
+need to create the new camera for the new place we are teleporting to add it under the CameraManager. When Teleporting system gets the camera based on the
+Place enum which is to help us keep track of which camera needs to be activated. This is the fastest, easiest scalable system I could come up for now.
+
+States of the player is something I wish I had time for, I didn't think I would need but at the end I thought to myself starting with state pattern would
+be far easier. I would have three states Shopping, Moving, Transitioning. Only reason I didn;t go for this is because there are only 3 states, but if we scaled 
+the game we would need eaither state pattern or behavioural tree pattern. Better would be If i went fot state pattern for now. This is something I would fix also.
+
