@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 327e750254da46e29dad2b1aacef5412, type: 3}
+  m_Name: Clothes
+  m_EditorClassIdentifier: 
+  frontSprite:
+  - {fileID: 21300024, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+  backSprite:
+  - {fileID: 21300036, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+  leftSprite:
+  - {fileID: 21300082, guid: b567dd415a8602044a189269b0adbf56, type: 3}
+  price: 150
+  Type: 2

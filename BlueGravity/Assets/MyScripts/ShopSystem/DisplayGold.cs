@@ -1,5 +1,4 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 namespace MyScripts.ShopSystem
@@ -7,11 +6,10 @@ namespace MyScripts.ShopSystem
     public class DisplayGold : MonoBehaviour
     {
         [SerializeField] private TMP_Text goldCounterText;
-        [SerializeField] private Wallet wallet;
 
         private void Awake()
         {
-            wallet.OnGoldChanged += SetGold;
+            Wallet.Instance.OnGoldChanged += SetGold;
         }
 
         private void SetGold(int amount)

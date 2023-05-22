@@ -1,3 +1,5 @@
+using System;
+using MyScripts.Interactable;
 using MyScripts.SceneManagement;
 using UnityEngine;
 
@@ -5,20 +7,31 @@ namespace MyScripts.Core
 {
     public class PlayerController : MonoBehaviour
     {
+        [Header("Movement Settings")]
         [SerializeField] private GameObject frontHuman;
+
         [SerializeField] private GameObject backHuman;
         [SerializeField] private GameObject leftHuman;
         [SerializeField] private GameObject rightHuman;
-
         [SerializeField] private float speed;
         [SerializeField] private Animator animator;
+
+        [Header("Interaction Settings")]
+        [SerializeField] private float radius = 1;
+
+        [SerializeField] private LayerMask interactableLayer;
+
+        [Header("Inventory System")]
+        [SerializeField] private GameObject inventory;
 
         private readonly int _idleAnimationId = Animator.StringToHash("Idle");
         private readonly int _walkAnimationId = Animator.StringToHash("Walk");
 
         private GameObject _currentHuman;
         private Rigidbody2D _rb;
+        private CapsuleCollider2D _bodyCollider;
 
+        private IInteractable _currentInteract;
         private Vector2 _moveMent;
         private bool isEnabled = true;
 
@@ -26,6 +39,8 @@ namespace MyScripts.Core
         void Start()
         {
             _rb = GetComponent<Rigidbody2D>();
+            _bodyCollider = GetComponent<CapsuleCollider2D>();
+
             _currentHuman = frontHuman;
             _currentHuman.SetActive(true);
 
@@ -36,6 +51,10 @@ namespace MyScripts.Core
 
         void Update()
         {
+            Interacte();
+
+            DisplayInventory();
+
             if (isEnabled)
             {
                 _moveMent.x = Input.GetAxis("Horizontal");
@@ -45,6 +64,39 @@ namespace MyScripts.Core
             }
 
             animator.CrossFade(_idleAnimationId, 0, 0);
+        }
+
+        private void DisplayInventory()
+        {
+            if (Input.GetKeyDown(KeyCode.Tab))
+            {
+                inventory.SetActive(!inventory.activeSelf);
+            }
+        }
+
+        private void Interacte()
+        {
+            var interactables = Physics2D.OverlapCircleAll(transform.position, radius, interactableLayer);
+
+            if (interactables.Length > 0)
+            {
+                _currentInteract = interactables[0].GetComponent<IInteractable>();
+
+                _currentInteract.DisplayUI();
+
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    _currentInteract.Interact();
+                }
+            }
+            else
+            {
+                if (_currentInteract != null)
+                {
+                    _currentInteract.RemoveUI();
+                    _currentInteract = null;
+                }
+            }
         }
 
         private void FixedUpdate()
@@ -109,6 +161,11 @@ namespace MyScripts.Core
             isEnabled = state;
             _moveMent = Vector2.zero;
             animator.CrossFade(_idleAnimationId, 0, 0);
+        }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.DrawWireSphere(transform.position, radius);
         }
     }
 }

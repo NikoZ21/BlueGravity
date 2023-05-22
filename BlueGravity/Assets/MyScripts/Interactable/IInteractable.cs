@@ -4,5 +4,6 @@
     {
         void Interact();
         void DisplayUI();
+        void RemoveUI();
     }
 }

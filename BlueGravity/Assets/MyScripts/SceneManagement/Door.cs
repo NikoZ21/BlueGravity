@@ -13,32 +13,28 @@ namespace MyScripts.SceneManagement
         [SerializeField] private LayerMask playerLayer;
 
         private Fader _fader;
+        private DisplayInteractUI _displayInteractUI;
 
+        private bool isOpen = false;
 
         private void Start()
         {
-            var parent = transform.parent;
-            _fader = parent.transform.parent.GetComponent<Fader>();
-            _fader.OnFadeOutFinished += ActivateCamera;
-        }
+            _displayInteractUI = GetComponentInChildren<DisplayInteractUI>();
 
-        private void Update()
-        {
-            if (collider.IsTouchingLayers(playerLayer))
-            {
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    StartCoroutine(_fader.FadeOutAndIn(destinationDoor.GetSpawnPoint()));
-                }
-            }
+            Transform parent = transform.parent;
+            _fader = parent.transform.parent.GetComponent<Fader>();
+
+            _fader.OnFadeOutFinished += ActivateCamera;
         }
 
         private void ActivateCamera(Transform destination)
         {
-            if (!collider.IsTouchingLayers(playerLayer)) return;
+            if (!isOpen) return;
 
             CameraManager.Instance.PickCamera(place).SetActive(false);
             CameraManager.Instance.PickCamera(destinationDoor.GetPlace()).SetActive(true);
+
+            isOpen = false;
         }
 
         public Place GetPlace() => place;
@@ -48,11 +44,17 @@ namespace MyScripts.SceneManagement
         public void Interact()
         {
             StartCoroutine(_fader.FadeOutAndIn(destinationDoor.GetSpawnPoint()));
+            isOpen = true;
         }
 
         public void DisplayUI()
         {
-            throw new System.NotImplementedException();
+            _displayInteractUI.PopUpButton();
+        }
+
+        public void RemoveUI()
+        {
+            _displayInteractUI.ResetButtonScale();
         }
     }
 

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 407539420265740026}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Passage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,6 +40,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 407539420265740026}
     m_Modifications:
+    - target: {fileID: 1462415797502953457, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.461
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462415797502953457, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.785
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789737833962730229, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3013586798402080813, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
       propertyPath: m_Icon
       value: 
@@ -47,6 +59,10 @@ PrefabInstance:
     - target: {fileID: 3013586798402080813, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
       propertyPath: m_Name
       value: DoorFromShopToTown
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013586798402080813, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3013586798402080814, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
       propertyPath: destination
@@ -100,6 +116,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4281378298301226837, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523617883215203605, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734537508991527930, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
 --- !u!4 &3203668779874550336 stripped
@@ -125,6 +153,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 407539420265740026}
     m_Modifications:
+    - target: {fileID: 1462415797502953457, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1789737833962730229, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3013586798402080813, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
       propertyPath: m_Icon
       value: 
@@ -132,6 +168,14 @@ PrefabInstance:
     - target: {fileID: 3013586798402080813, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
       propertyPath: m_Name
       value: DoorFromTownToShop
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013586798402080813, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3013586798402080814, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: place
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3013586798402080814, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
       propertyPath: destination
@@ -147,11 +191,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3013586798402080815, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.83135986
+      value: -0.848
       objectReference: {fileID: 0}
     - target: {fileID: 3013586798402080815, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.80773926
+      value: -0.83
       objectReference: {fileID: 0}
     - target: {fileID: 3013586798402080815, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -184,6 +228,18 @@ PrefabInstance:
     - target: {fileID: 3013586798402080815, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281378298301226837, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5523617883215203605, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8734537508991527930, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
+      propertyPath: m_Layer
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c14a46fd97330bc47a9b94669328d92d, type: 3}
