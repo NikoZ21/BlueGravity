@@ -8,7 +8,11 @@ namespace MyScripts.ShopSystem
     {
         [SerializeField] private Image[] displaySprite;
         [SerializeField] private TMP_Text priceTag;
+        [SerializeField] private Transform sellParent;
+        [SerializeField] private Transform buyParent;
         public Clothes Clothes { get; set; }
+        public void SetSellParent(Transform parent) => sellParent = parent;
+        public void SetBuyParent(Transform parent) => buyParent = parent;
 
 
         private void Start()
@@ -23,11 +27,21 @@ namespace MyScripts.ShopSystem
             priceTag.text = Clothes.price.ToString();
         }
 
-        public void BuyItem()
+        public void BuySellItem()
         {
-            if (Wallet.Instance.SpendTheGold(Clothes.price))
+            if (transform.parent == buyParent)
             {
-                Inventory.Inventory.Instance.AddToInventory(Clothes);
+                if (Wallet.Instance.SpendTheGold(Clothes.price))
+                {
+                    Inventory.Inventory.Instance.AddToInventory(Clothes);
+                    transform.parent = sellParent;
+                }
+            }
+            else
+            {
+                Inventory.Inventory.Instance.RemoveFromInventory(Clothes);
+                Wallet.Instance.EarnTheGold(Clothes.price);
+                transform.parent = buyParent;
             }
         }
     }

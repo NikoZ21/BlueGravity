@@ -11,7 +11,7 @@ namespace MyScripts.Inventory
     {
         [SerializeField] private Image[] displaySprite;
         [SerializeField] private TMP_Text equippedText;
-        private Clothes clothes;
+        [SerializeField] private Clothes clothes;
 
         public void CreateItem(Clothes clothes)
         {

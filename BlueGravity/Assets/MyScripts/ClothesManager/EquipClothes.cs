@@ -34,6 +34,13 @@ namespace MyScripts.ClothesManager
         private void AssignClothes(SpriteGetter spriteGetter, Clothes clothes, Sprite[] sprites)
         {
             var sprite = spriteGetter.GetSprite(clothes.Type);
+
+            if (clothes.frontSprite.Length == 0 || clothes.frontSprite == null)
+            {
+                sprite[0].sprite = null;
+                return;
+            }
+
             for (int i = 0; i < sprite.Length; i++)
             {
                 sprite[i].sprite = sprites[i];

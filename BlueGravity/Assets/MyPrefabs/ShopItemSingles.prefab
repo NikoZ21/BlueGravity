@@ -87,8 +87,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8111961848636503356}
-        m_TargetAssemblyTypeName: ShopButton, Assembly-CSharp
-        m_MethodName: BuyItem
+        m_TargetAssemblyTypeName: MyScripts.ShopSystem.ShopButton, Assembly-CSharp
+        m_MethodName: BuySellItem
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -113,6 +113,8 @@ MonoBehaviour:
   displaySprite:
   - {fileID: 8111961849211543349}
   priceTag: {fileID: 8111961849674405224}
+  sellParent: {fileID: 0}
+  buyParent: {fileID: 0}
 --- !u!1 &8111961848959460780
 GameObject:
   m_ObjectHideFlags: 0
